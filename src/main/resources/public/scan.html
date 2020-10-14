@@ -54,10 +54,10 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">{{product.brands}}</li>
                   <li class="list-group-item" v-for="list in lists">
-                    <a href="#" class="btn btn-danger"
+                    <a href="#" class="btn btn-lg btn-block btn-danger"
                       v-on:click="updateQty(list.id, product.id, -1)">{{list.name}} -1</a>
                       
-                    <a href="#" class="btn btn-primary" 
+                    <a href="#" class="btn btn-lg btn-block btn-primary" 
                       v-on:click="updateQty(list.id, product.id, 1)">{{list.name}} +1</a>
                     
                   </li>
