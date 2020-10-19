@@ -1,3 +1,4 @@
+setTimeout(function(){$('#myModal').modal('hide')},3000);
 
 const app = new Vue({
   el: '#wrapper',
@@ -12,6 +13,7 @@ const app = new Vue({
       
   },
   mounted () {
+
     let uri = window.location.search.substring(1); 
     let params = new URLSearchParams(uri);
     
@@ -20,6 +22,10 @@ const app = new Vue({
         .get('/product/code/'+params.get("code"))
         .then(response => {
           this.product = response.data;
+          if(this.product.productName === undefined || this.product.productName == null || this.product.productName == ''){
+            //window.location.href='/product-edit.html?code='+this.product.code;
+            window.location.href='https://world.openfoodfacts.org/cgi/product.pl?code='+this.product.code;
+          }
         });
     }
     axios
@@ -33,7 +39,7 @@ const app = new Vue({
       axios
         .get('/list/add-qty/'+listId+'/'+productId+'/'+qty)
         .then(response => {
-          //this.list = response.data;
+          $('#myModal').modal();
         });
     }
   }

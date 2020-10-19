@@ -36,50 +36,30 @@
       <div id="content">
       
         <!-- Begin Page Content -->
-        <div v-if="product" class="container-fluid">
+        <div class="container-fluid">
 
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">{{product.code}}</h1>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary" >Edit</h6>
+            </div>
+            <div class="card-body">
+
+              <label for="code">Code</label>
+              <input id="code" class="form-control" v-model="product.code" disabled>
+
+              <label for="name">Product name</label>
+              <input id="name" class="form-control" v-model="product.productName" >
+
+              <label for="brand">Brand</label>
+              <input id="brand" class="form-control" v-model="product.brands" >
+
+              <hr/>
+              <button class="btn btn-lg btn-block btn-primary" v-on:click="save">Save</button>
+              <button v-for="list in lists" class="btn btn-lg btn-block btn-primary" v-on:click="saveAndAdd(list.id)">Save & add to {{list.name}}</button>
+
+            </div>
           </div>
 
-		      <div class="row">
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">OK</h5>
-                    
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-
-
-            <div class="card text-center" style="width: 17rem;">
-              <img v-if="product.imageUrl" style="height: 12rem; max-width: 17rem;" class="rounded mx-auto d-block" :src="product.imageUrl" :alt="product.productName">
-              <img v-if="!product.imageUrl" style="height: 12rem; max-width: 17rem;" class="rounded mx-auto d-block" src="/img/no-image-icon.png" :alt="product.productName">
-              <div class="card-body">
-                <h5 class="card-title">
-                  {{product.productName}}
-                </h5>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">{{product.brands}}</li>
-                  <li class="list-group-item" v-for="list in lists">
-                    <a href="#" class="btn btn-lg btn-block btn-danger"
-                      v-on:click="updateQty(list.id, product.id, -1)">{{list.name}} -1</a>
-                      
-                    <a href="#" class="btn btn-lg btn-block btn-primary" 
-                      v-on:click="updateQty(list.id, product.id, 1)">{{list.name}} +1</a>
-                    
-                  </li>
-                </ul>
-                
-              </div>
-            </div>
-
-          </div>
         </div> <!-- /.container-fluid -->
 
       </div> <!-- End of Main Content -->
@@ -116,7 +96,7 @@
 
   <script src="js/components/menu.js"></script>
   <script src="js/components/footer.js"></script>
-  <script src="js/scan.js"></script>
+  <script src="js/product-edit.js"></script>
   
 </body>
 

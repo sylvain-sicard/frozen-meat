@@ -48,9 +48,9 @@
 		      <div class="row">
             
             <div class="card-deck">
-              <div class="card text-center"  style="width: 12rem;" v-for="item in list.products">
-                <img v-if="item.p.imageUrl"  style="height: 12rem; max-width: 12rem;" class="rounded mx-auto d-block" :src="item.p.imageUrl" :alt="item.p.productName">
-                <img v-if="!item.p.imageUrl" style="height: 12rem; max-width: 12rem;" class="rounded mx-auto d-block" src="/img/no-image-icon.png" :alt="item.p.productName">
+              <div class="card text-center"  style="width: 17rem;" v-for="item in list.products">
+                <img v-if="item.p.imageUrl"  style="height: 12rem; max-width: 17rem;" class="rounded mx-auto d-block" :src="item.p.imageUrl" :alt="item.p.productName">
+                <img v-if="!item.p.imageUrl" style="height: 12rem; max-width: 17rem;" class="rounded mx-auto d-block" src="/img/no-image-icon.png" :alt="item.p.productName">
                 <div class="card-body">
                   <h5 class="card-title">
                     {{item.p.productName}}
